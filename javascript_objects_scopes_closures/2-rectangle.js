@@ -1,3 +1,4 @@
+#!/usr/bin/node
 //class for Rectangle
 class Rectangle {
     // Script defines rectangle
@@ -6,7 +7,7 @@ class Rectangle {
         this.height = h;
 
         if(w == 0 || h == 0 ) {
-            
+
         }
     }
     }
