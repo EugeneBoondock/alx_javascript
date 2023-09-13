@@ -9,9 +9,9 @@ class Rectangle {
       }else{
         this.width = w;
         this.height = h;
+        return {Rectangle: {}};
       }
     }
   }
   
   module.exports = Rectangle;
-  
