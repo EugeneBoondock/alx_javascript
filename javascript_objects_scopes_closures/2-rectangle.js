@@ -1,16 +1,16 @@
 #!/usr/bin/node
 //class for Rectangle
 class Rectangle {
-    // Script defines rectangle
-    constructor (w, h) {
-        this.width = w;
-        this.height = h;
-
-        if(w === 0 || h === 0) {
-
-            return {};
-        }
+    constructor(w, h) {
+      if (w <= 0 || h <= 0 || isNaN(w) || isNaN(h)) {
+        // If w or h is not a positive integer or is 0, create an empty object
+        return {};
+      }
+  
+      this.width = w;
+      this.height = h;
     }
-    }
-    
-    module.exports = Rectangle;
+  }
+  
+  module.exports = Rectangle;
+  
