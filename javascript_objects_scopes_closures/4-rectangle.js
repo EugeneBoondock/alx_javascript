@@ -21,12 +21,11 @@ class Rectangle {
     }
 
     rotate() {
-        if (this.width && this.height) {
-            for (let i = 0; i < this.width; i++) {
-                console.log('X'.repeat(this.height));
-            }
-        }
+        const temp = this.width;
+        this.width = this.height;
+        this.height = temp;
     }
+    
 
     double() {
         if (this.width && this.height) {
