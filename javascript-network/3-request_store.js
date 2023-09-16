@@ -30,7 +30,5 @@ request(url, (error, response, body) => {
       console.error('Error writing to file:', writeError);
       process.exit(1);
     }
-
-    console.log('Content has been saved to the file:', outputFilePath);
   });
 });
