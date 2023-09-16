@@ -31,6 +31,6 @@ request(url, (error, response, body) => {
       process.exit(1);
     }
 
-    console.log(body);
+    console.log('Content has been saved to the file:', outputFilePath);
   });
 });
