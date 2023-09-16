@@ -1,14 +1,10 @@
-
-
-function executeXTimes(x, theFunction) {
-    if (x <= 0) {
-      return;
+#!/usr/bin/node
+function callMeMoby (x, theFunction) {
+    if (x > 0) {
+      theFunction();
+      callMeMoby(x - 1, theFunction);
     }
-  
-    theFunction();
-  
-    executeXTimes(x - 1, theFunction);
   }
-
-  module.exports = executeXTimes;
+  
+  module.exports.callMeMoby = callMeMoby;
   
