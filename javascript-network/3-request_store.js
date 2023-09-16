@@ -1,5 +1,3 @@
-#!/usr/bin/node
-
 const request = require('request');
 const fs = require('fs');
 
@@ -33,6 +31,6 @@ request(url, (error, response, body) => {
       process.exit(1);
     }
 
-    console.log(outputFilePath);
+    console.log(body);
   });
 });
