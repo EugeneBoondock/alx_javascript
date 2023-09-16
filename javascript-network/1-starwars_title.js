@@ -9,5 +9,5 @@ request.get(url, { encoding: 'utf-8' })
   .on('response', response => {
       response.on('end', () => {
         const film = JSON.parse(data);
-        console.log('Title:', film.title);
+        console.log(film.title);
     })});
