@@ -33,6 +33,6 @@ request(url, (error, response, body) => {
       process.exit(1);
     }
 
-    console.log(`Webpage content has been saved to ${outputFilePath}`);
+    console.log(outputFilePath);
   });
 });
