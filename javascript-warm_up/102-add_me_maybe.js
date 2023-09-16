@@ -1,10 +1,9 @@
 #!/usr/bin/node
-function incrementAndCall (number, theFunction) {
-    if (number > 0) {
-      incrementAndCall(number - 1, theFunction);
-      theFunction();
-    }
+
+function addMeMaybe(number, theFunction) {
+    number++;
+    theFunction(number);
   }
   
-  module.exports.incrementAndCall = incrementAndCall;
+  module.exports.addMeMaybe = addMeMaybe;
   
