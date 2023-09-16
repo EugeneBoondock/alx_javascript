@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 const request = require('request');
-const url = process.argv[2];
+const url = 'https://swapi-api.alx-tools.com/api/films/';
 
 const id = 18;
 
@@ -14,7 +14,7 @@ request(url, (error, response, body) => {
     try {
       const filmData = JSON.parse(body);
       const moviesWithCharacter = filmData.results.filter((movie) =>
-        movie.characters.includes(`https://swapi-api.alx-tools.com/api/people/${id}/`)
+        movie.characters.includes(`https://swapi-api.alx-tools.com/api/films/${id}/`)
       );
       console.log(moviesWithCharacter.length);
     } catch (parseError) {
