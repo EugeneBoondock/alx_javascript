@@ -11,3 +11,5 @@ request.get(url, { encoding: 'utf-8' })
   .on('error', err => {
     console.error('Error:', err);
   });
+
+  module.exports = request;
