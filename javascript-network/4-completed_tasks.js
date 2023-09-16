@@ -1,44 +1,36 @@
-const axios = require('axios');
+const request = require('request');
 
-// Define the API URL
-const apiUrl = 'https://jsonplaceholder.typicode.com/todos';
+const apiUrl = process.argv[2];
 
-// Function to count completed tasks by user ID
-async function countCompletedTasks() {
-  try {
-    // Send a GET request to the API
-    const response = await axios.get(apiUrl);
-
-    // Check if the request was successful (status code 200)
-    if (response.status === 200) {
-      // Parse the JSON response
-      const tasks = response.data;
-
-      // Create an object to store the count of completed tasks for each user
-      const completedTaskCount = {};
-
-      // Iterate through the tasks
-      tasks.forEach((task) => {
-        if (task.completed) {
-          const userId = task.userId;
-          // Increment the count of completed tasks for the user
-          completedTaskCount[userId] = (completedTaskCount[userId] || 0) + 1;
-        }
-      });
-
-      // Print users with completed tasks
-      for (const userId in completedTaskCount) {
-        console.log(`User ID ${userId}: ${completedTaskCount[userId]} completed tasks`);
-      }
-    } else {
-      // Print an error message if the request was not successful
-      console.error(`Error: Unable to fetch data from the API. Status code ${response.status}`);
-    }
-  } catch (error) {
-    // Handle any errors that occur during the request
-    console.error('An error occurred:', error.message);
-  }
+if (!apiUrl) {
+  console.error('Usage: node 4-completed_tasks.js <API_URL>');
+  process.exit(1);
 }
 
-// Call the function to count completed tasks
-countCompletedTasks();
+const completedTasksByUser = {};
+
+request(apiUrl, (error, response, body) => {
+  if (error) {
+    console.error('Error:', error);
+    process.exit(1);
+  }
+
+  if (response.statusCode !== 200) {
+    console.error(`Request failed with status code ${response.statusCode}`);
+    process.exit(1);
+  }
+
+  const tasks = JSON.parse(body);
+
+  tasks.forEach((task) => {
+    if (task.completed) {
+      if (completedTasksByUser[task.userId]) {
+        completedTasksByUser[task.userId]++;
+      } else {
+        completedTasksByUser[task.userId] = 1;
+      }
+    }
+  });
+
+  console.log(completedTasksByUser);
+});
