@@ -1,21 +1,21 @@
 #!/usr/bin/node
 
-const request = require("request");
+const request = require('request');
+const movieId = process.argv[2];
 
-const id = process.argv[2];
-const url = "https://swapi-api.alx-tools.com/api/films/${id}";
+const apiUrl = `https://swapi-api.alx-tools.com/api/films/${movieId}`;
 
-request.get(url, { encoding: "utf-8" })
- .on("response", (response) => {
-  if (response.statusCode === 200) {
-    let data = "";
-    response.on("data", (chunk) => {
-      data += chunk;
-    });
-
-    response.on("end", () => {
-      const film = JSON.parse(data);
-      console.log(film.title);
-    });
+request(apiUrl, (error, response, body) => {
+  if (error) {
+    console.error('Error:', error);
+  } else if (response.statusCode !== 200) {
+    console.error('Request failed with status code:', response.statusCode);
+  } else {
+    try {
+      const movieData = JSON.parse(body);
+      console.log(movieData.title);
+    } catch (parseError) {
+      console.error('Error parsing JSON:', parseError);
+    }
   }
 });
