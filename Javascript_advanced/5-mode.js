@@ -6,7 +6,7 @@ function changeMode(size, weight, transform, background,  color) {
     document.body.style.font-weight = weight;
     document.body.style.text-transform = transform;
     document.body.style.background-color = background;
-    document.body.style.colir = color;
+    document.body.style.color = color;
   };
 }
 
