@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Creating and Removing Elements</title>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+    const cont = document.getElementById('container');
+    const newP = document.createElement('p');
+    newP.textContent = 'New paragraph';
+    cont.appendChild(newP);
+    const newButt = document.createElement('button');
+    newButt.textContent = 'Remove Para';
+    newButt.onclick = function () {
+        cont.removeChild(newP);
+    };
+    cont.appendChild(newButt);
+  </script>
+</body>
+</html>
