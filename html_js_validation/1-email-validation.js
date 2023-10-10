@@ -1,6 +1,6 @@
 function validateEmail () {
-    var email = document.getElementById('email').value;
-    var error = document.getElementById('error');
+    const email = document.getElementById('email').value;
+    const error = document.getElementById('error');
 
     if (email.length === 0) {
         error.innerHTML = 'Please enter a valid email address.';

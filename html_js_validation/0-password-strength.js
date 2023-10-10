@@ -1,6 +1,6 @@
 function validatePassword () {
-    var password = document.getElementById('password');
-    var error = document.getElementById('error');
+    const password = document.getElementById('password');
+    const error = document.getElementById('error');
 
     if (password.length < 8) {
         error.innerHTML = 'Password should be 8 characters long';
@@ -16,8 +16,7 @@ function validatePassword () {
 }
 
 function validateForm () {
-    var form = document.getElementById('passwordForm');
-    var error = document.getElementById('error');
+    const error = document.getElementById('error');
 
     if (!validatePassword) {
         error.innerHTML = 'Please fix the errors'
