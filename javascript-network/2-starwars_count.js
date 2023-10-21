@@ -19,8 +19,11 @@ request(apiUrl, (error, response, body) => {
   let count = 0;
   for (let i = 0; i < films.length; i++) {
     const characters = films[i].characters;
-    if (characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
-      count++;
+    for (let j = 0; j < characters.length; j++) {
+      if (characters[j].includes('/18/')) {
+        count++;
+        break;
+      }
     }
   }
 
