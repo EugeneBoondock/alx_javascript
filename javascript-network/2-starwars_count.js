@@ -18,10 +18,10 @@ request(apiUrl, (error, response, body) => {
 
   // Parse the JSON response
   try {
-    const data = JSON.parse(body);
+    const data = JSON.parse(body).results;
 
     // Filter the films where character ID 18 (Wedge Antilles) is present
-    const filmsWithWedgeAntilles = data.results.filter((film) =>
+    const filmsWithWedgeAntilles = data.filter((film) =>
       film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')
     );
 
